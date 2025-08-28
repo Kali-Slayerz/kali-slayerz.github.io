@@ -1,0 +1,94 @@
+{
+  "name": "Kali Slayer",
+  "title": "Developer / Designer / Creator",
+  "photo": "kali.png",
+  "portfolio": "https://kali-slayerz.github.io",
+
+  "about": "Forged in the shadows of late-night code and caffeine, I am the alter ego born to push limits in AI, Cybersecurity, and Full-Stack sorcery. My mission: build, break, and rebuild—until mastery is mine.",
+
+  "contact": {
+    "address": "Hidden Fortress, Cyberspace",
+    "mobile": "",
+    "email": "kalislayerz@gmail.com",
+    "github": "https://github.com/Kali-Slayerz",
+    "x": "https://x.com/KaliSlayerz"
+  },
+
+  "education": [
+    {
+      "degree": "B.Tech in Computer Science & Engineering",
+      "university": "Shadow University of Digital Arts",
+      "years": "2022 – Ongoing",
+      "specialization": "AI, Full Stack, and Cybersecurity",
+      "achievements": [
+        "Survived 100+ hours debugging marathons",
+        "Built neural models that refused to sleep",
+        "Top 1% in Capture the Flag competitions (dark web edition)"
+      ]
+    }
+  ],
+
+  "skills": {
+    "software": [
+      "Photoshop",
+      "Illustrator"
+    ],
+    "languages": [
+      "C",
+      "C++",
+      "Python",
+      "JavaScript",
+      "Web-HTML",
+      "CSS"
+    ],
+    "developmental": [
+      "AI & Neural Networks",
+      "Storytelling / Content Creation",
+      "Cybersecurity Tactics",
+      "Web/Game Design & Development"
+    ]
+  },
+
+  "experiences": [
+    {
+      "role": "Shadow Architect",
+      "company": "Sidistracton Studios",
+      "years": "2019 – Ongoing",
+      "description": "Crafted strategies, systems, and digital illusions for clients across the globe."
+    },
+    {
+      "role": "Gamification Warrior",
+      "company": "Brain Chance",
+      "years": "2020",
+      "description": "Battled through gamification challenges where chaos was turned into order."
+    }
+  ],
+
+  "cs_projects": [
+    {
+      "name": "Project Hydra",
+      "year": "2022",
+      "description": "An AI-driven aggregator that discovers and learns from the web like a digital beast. Inspired by Feedly, evolved into a weaponized knowledge tool."
+    },
+    {
+      "name": "Phantom Firewall",
+      "year": "2023",
+      "description": "A security project blending anomaly detection with adversarial trickery to keep intruders guessing."
+    }
+  ],
+
+  "extra_curricular": [
+    {
+      "role": "Dungeon Master",
+      "org": "Slayer’s Guild",
+      "year": "2021",
+      "details": "Lead the cult of curiosity and creation in the digital underworld."
+    },
+    {
+      "role": "Digital Gladiator",
+      "org": "Hackathons",
+      "year": "2019 – 2023",
+      "details": "Conquered multiple hackathons with creative chaos."
+    }
+  ]
+}

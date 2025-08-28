@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ data.name }} - Resume</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 40px; }
+    h1, h2 { margin-bottom: 5px; }
+    .section { margin-top: 20px; }
+    ul { margin: 0; padding: 0; list-style-type: none; }
+    li { margin-bottom: 5px; }
+    a { color: blue; text-decoration: none; }
+  </style>
+</head>
+<body>
+
+  <h1>{{ data.name }}</h1>
+  <h3>{{ data.title }}</h3>
+  {% if data.photo %}<img src="{{ data.photo }}" alt="Profile" width="120">{% endif %}
+  <p><a href="{{ data.portfolio }}">{{ data.portfolio }}</a></p>
+
+  <div class="section">
+    <h2>About Me</h2>
+    <p>{{ data.about }}</p>
+  </div>
+
+  <div class="section">
+    <h2>Contact</h2>
+    <ul>
+      {% for key, value in data.contact.items() if value %}
+        <li><strong>{{ key|capitalize }}:</strong> <a href="{{ value }}">{{ value }}</a></li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  {% if data.education %}
+  <div class="section">
+    <h2>Education</h2>
+    {% for edu in data.education %}
+      <p><strong>{{ edu.degree }}</strong>, {{ edu.university }} ({{ edu.years }})</p>
+      {% if edu.specialization %}<p>Specialization: {{ edu.specialization }}</p>{% endif %}
+      {% if edu.achievements %}
+        <ul>
+        {% for ach in edu.achievements %}
+          <li>{{ ach }}</li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+    {% endfor %}
+  </div>
+  {% endif %}
+
+  {% if data.skills %}
+  <div class="section">
+    <h2>Skills</h2>
+    {% for category, skills in data.skills.items() %}
+      <p><strong>{{ category|capitalize }}:</strong> {{ skills|join(', ') }}</p>
+    {% endfor %}
+  </div>
+  {% endif %}
+
+  {% if data.experiences %}
+  <div class="section">
+    <h2>Experiences</h2>
+    {% for exp in data.experiences %}
+      <p><strong>{{ exp.role }}</strong> - {{ exp.company }} ({{ exp.years }})<br>
+      {{ exp.description }}</p>
+    {% endfor %}
+  </div>
+  {% endif %}
+
+  {% if data.cs_projects %}
+  <div class="section">
+    <h2>CS Projects</h2>
+    {% for proj in data.cs_projects %}
+      <p><strong>{{ proj.name }}</strong> ({{ proj.year }})<br>{{ proj.description }}</p>
+    {% endfor %}
+  </div>
+  {% endif %}
+
+  {% if data.extra_curricular %}
+  <div class="section">
+    <h2>Extra-Curricular Activities</h2>
+    {% for ex in data.extra_curricular %}
+      <p><strong>{{ ex.role }}</strong> - {{ ex.org }} ({{ ex.year }})<br>{{ ex.details }}</p>
+    {% endfor %}
+  </div>
+  {% endif %}
+
+  <hr>
+  <p><a href="{{ data.switch_link }}">Switch Resume</a></p>
+
+</body>
+</html>

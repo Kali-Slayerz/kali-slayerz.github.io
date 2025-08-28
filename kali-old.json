@@ -1,0 +1,102 @@
+{
+  "name": "Kali Slayer",
+  "title": "Developer / Designer / Creator",
+  "photo": "kali.png",
+  "portfolio": "https://kali-slayerz.github.io",
+  
+  "about": "Diligent CS with Full Stack and AI major aiming to leverage a proven knowledge of Artificial Intelligence, Design, Full Stack Web Development & Content Creation. Suited to successfully fill the Developer/Creator role at your company, frequently praised as efficient by peers, I can be relied upon to help your company achieve its goals.",
+  
+  "contact": {
+    "address": "",
+    "mobile": "",
+    "email": "kalislayerz@gmail.com",
+    "Github": "https://github.com/Kali-Slayerz",
+    "X": "https://x.com/KaliSlayerz"
+  },
+  
+  
+  "skills": {
+    "software": [
+      "Photoshop", 
+      "Illustrator"
+    ],
+    "languages": [
+      "C", 
+      "C++", 
+      "Python", 
+      "Web-HTML", 
+      "CSS"
+    ],
+    "developmental": [ 
+      "Gamification", 
+      "Storytelling/Content Creation", 
+      "Web/Game Design & Development"
+    ]
+  },
+  
+  "experiences": [
+    {
+      "role": "Owner/Founder",
+      "company": "Sidistracton Studios",
+      "years": "2019 – Ongoing",
+      "description": "I create strategies and content for firms and people. Some of my clients are: Hutscape, Flickbee, FIND App, Satish Ray, Kari Rock, Giulias Raffaele, etc."
+    },
+    {
+      "role": "Gamification Task",
+      "company": "Brain Chance",
+      "years": "2020",
+      "description": "I survived till the last round of this gamification challenge where we had to introduce random problems and build solutions for a group of people."
+    },
+    {
+      "role": "Founding Creator",
+      "company": "Just A Parody",
+      "years": "2020 – Ongoing",
+      "description": "We created parodies by contextualizing random parodies of popular songs. We’ve received lakhs of engagement."
+    },
+    {
+      "role": "Media Associate",
+      "company": "Enovoch",
+      "years": "2021",
+      "description": "This is a Switzerland-based E-commerce site which has its working in Italy and Germany too. I was responsible for handling their media strategies."
+    }
+  ],
+  
+  "cs_projects": [
+    {
+      "name": "Peaky Blinders",
+      "year": "2019",
+      "description": "A multitasking stick for blind people that can do many things at once — can detect any obstacle and direct the user, can identify any known location via its face, tracks user’s health and location within the web interface."
+    },
+    {
+      "name": "Dashavatar",
+      "year": "2020",
+      "description": "This is a 2-d game with a proper storyline of Vishnu’s 10 avatars with their timeline."
+    },
+    {
+      "name": "Oculu",
+      "year": "2020",
+      "description": "This is an extension of Peaky Blinders in a goggle form which can read newspaper and can even narrate the current happenings around the world."
+    }
+  ],
+  
+  "extra_curricular": [
+    {
+      "role": "President",
+      "org": "Lazarus Performing Arts",
+      "year": "2021",
+      "details": "Cultural Society of UPES"
+    },
+    {
+      "role": "Nationalist",
+      "org": "Badminton Sport",
+      "year": "2015",
+      "details": "Under 15 nationalist in badminton"
+    },
+    {
+      "role": "Captaincy",
+      "org": "House Captains in School",
+      "year": "2018",
+      "details": "Leadership position in school for 3 consecutive years"
+    }
+  ]
+}
