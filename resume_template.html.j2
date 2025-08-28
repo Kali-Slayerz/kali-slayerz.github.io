@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>{{ data.name or "Untitled" }} — Resume</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --fg: #111;
+      --muted: #666;
+      --accent: #4f46e5;
+      --bg: #fff;
+      --chip: #eef2ff;
+      --card: #fafafa;
+    }
+    html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji"; }
+    .page { max-width: 900px; margin: 2rem auto; padding: 2rem; background: var(--bg); }
+    header { display: grid; grid-template-columns: 1fr auto; gap: 1rem; align-items: center; }
+    header .title { display: flex; flex-direction: column; gap: .25rem; }
+    h1 { margin: 0; font-size: 2rem; line-height: 1.2; }
+    h2 { margin: .25rem 0 0 0; font-weight: 500; color: var(--muted); font-size: 1.05rem; }
+    .photo { width: 96px; height: 96px; border-radius: 12px; object-fit: cover; box-shadow: 0 2px 10px rgb(0 0 0 / 10%); }
+    .meta { margin-top: 1rem; display: flex; flex-wrap: wrap; gap: .5rem 1rem; font-size: .95rem; color: var(--muted); }
+    .meta a { color: var(--accent); text-decoration: none; }
+    .meta a:hover { text-decoration: underline; }
+    .about { margin: 1.25rem 0 2rem; padding: 1rem; border-radius: 12px; background: var(--card); }
+    section { margin: 1.75rem 0; }
+    section > h3 { margin: 0 0 .75rem 0; font-size: 1.15rem; letter-spacing: .2px; }
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .list { display: grid; gap: .5rem; }
+    .item { padding: .75rem .9rem; border-radius: 10px; background: var(--card); }
+    .item h4 { margin: 0 0 .25rem 0; font-size: 1rem; }
+    .item .sub { margin: 0 0 .25rem 0; font-size: .92rem; color: var(--muted); }
+    ul.chips { list-style: none; margin: .5rem 0 0 0; padding: 0; display: flex; gap: .5rem; flex-wrap: wrap; }
+    ul.chips li { background: var(--chip); padding: .25rem .55rem; border-radius: 999px; font-size: .85rem; }
+    .switch { margin-top: 1.5rem; font-size: .95rem; }
+    .switch a { color: var(--accent); text-decoration: none; }
+    .switch a:hover { text-decoration: underline; }
+    @media (max-width: 720px) {
+      .grid-2 { grid-template-columns: 1fr; }
+      header { grid-template-columns: 1fr; }
+      .photo { width: 80px; height: 80px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="title">
+        <h1>{{ data.name or "" }}</h1>
+        {% if data.title %}<h2>{{ data.title }}</h2>{% endif %}
+      </div>
+
+      {% if data.photo %}
+        <img class="photo" src="{{ data.photo }}" alt="{{ data.name }} headshot" />
+      {% endif %}
+    </header>
+
+    <div class="meta">
+      {% if data.portfolio %}<div>🌐 <a href="{{ data.portfolio }}">{{ data.portfolio }}</a></div>{% endif %}
+      {% if data.contact and data.contact.email %}<div>✉️ <a href="mailto:{{ data.contact.email }}">{{ data.contact.email }}</a></div>{% endif %}
+      {% if data.contact and data.contact.github %}<div>💻 <a href="{{ data.contact.github }}">GitHub</a></div>{% endif %}
+      {% if data.contact and data.contact.x %}<div>𝕏 <a href="{{ data.contact.x }}">@{{ data.name.split(' ')[0] | lower }}</a></div>{% endif %}
+      {% if data.contact and data.contact.address %}<div>📍 {{ data.contact.address }}</div>{% endif %}
+      {% if data.contact and data.contact.mobile %}<div>📱 {{ data.contact.mobile }}</div>{% endif %}
+    </div>
+
+    {% if data.about %}
+      <div class="about">
+        <p>{{ data.about }}</p>
+      </div>
+    {% endif %}
+
+    {% if data.education and data.education|length > 0 %}
+      <section>
+        <h3>Education</h3>
+        <div class="list">
+          {% for edu in data.education %}
+          <div class="item">
+            <h4>{{ edu.degree or "—" }}</h4>
+            <p class="sub">
+              {% if edu.university %}{{ edu.university }}{% endif %}
+              {% if edu.years %} · {{ edu.years }}{% endif %}
+              {% if edu.specialization %} · {{ edu.specialization }}{% endif %}
+            </p>
+            {% if edu.achievements and edu.achievements|length > 0 %}
+              <ul class="chips">
+                {% for ach in edu.achievements %}
+                  <li>{{ ach }}</li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+          </div>
+          {% endfor %}
+        </div>
+      </section>
+    {% endif %}
+
+    {% if data.skills %}
+      <section>
+        <h3>Skills</h3>
+        <div class="grid-2">
+          {% if data.skills.languages and data.skills.languages|length > 0 %}
+          <div class="item">
+            <h4>Languages</h4>
+            <ul class="chips">
+              {% for s in data.skills.languages %}
+                <li>{{ s }}</li>
+              {% endfor %}
+            </ul>
+          </div>
+          {% endif %}
+
+          {% if data.skills.software and data.skills.software|length > 0 %}
+          <div class="item">
+            <h4>Software</h4>
+            <ul class="chips">
+              {% for s in data.skills.software %}
+                <li>{{ s }}</li>
+              {% endfor %}
+            </ul>
+          </div>
+          {% endif %}
+
+          {% if data.skills.developmental and data.skills.developmental|length > 0 %}
+          <div class="item">
+            <h4>Developmental</h4>
+            <ul class="chips">
+              {% for s in data.skills.developmental %}
+                <li>{{ s }}</li>
+              {% endfor %}
+            </ul>
+          </div>
+          {% endif %}
+        </div>
+      </section>
+    {% endif %}
+
+    {% if data.experiences and data.experiences|length > 0 %}
+      <section>
+        <h3>Experience</h3>
+        <div class="list">
+          {% for e in data.experiences %}
+          <div class="item">
+            <h4>{{ e.role or "—" }}</h4>
+            <p class="sub">
+              {% if e.company %}{{ e.company }}{% endif %}
+              {% if e.years %} · {{ e.years }}{% endif %}
+            </p>
+            {% if e.description %}<p>{{ e.description }}</p>{% endif %}
+          </div>
+          {% endfor %}
+        </div>
+      </section>
+    {% endif %}
+
+    {% if data.cs_projects and data.cs_projects|length > 0 %}
+      <section>
+        <h3>Projects</h3>
+        <div class="list">
+          {% for p in data.cs_projects %}
+          <div class="item">
+            <h4>{{ p.name or "—" }}</h4>
+            <p class="sub">
+              {% if p.year %}{{ p.year }}{% endif %}
+            </p>
+            {% if p.description %}<p>{{ p.description }}</p>{% endif %}
+          </div>
+          {% endfor %}
+        </div>
+      </section>
+    {% endif %}
+
+    {% if data.extra_curricular and data.extra_curricular|length > 0 %}
+      <section>
+        <h3>Extra-Curricular</h3>
+        <div class="list">
+          {% for x in data.extra_curricular %}
+          <div class="item">
+            <h4>{{ x.role or "—" }}</h4>
+            <p class="sub">
+              {% if x.org %}{{ x.org }}{% endif %}
+              {% if x.year %} · {{ x.year }}{% endif %}
+            </p>
+            {% if x.details %}<p>{{ x.details }}</p>{% endif %}
+          </div>
+          {% endfor %}
+        </div>
+      </section>
+    {% endif %}
+
+    <div class="switch">
+      {% if switch_to %}
+        <span>Looking for the other version?</span>
+        <a href="{{ switch_to }}">Open it here →</a>
+      {% endif %}
+    </div>
+  </div>
+</body>
+</html>
